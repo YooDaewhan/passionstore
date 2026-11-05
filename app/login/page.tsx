@@ -1,7 +1,7 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
 
+import ShellMark from "../shell-mark";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useStore, type Role } from "../store";
@@ -29,7 +29,8 @@ export default function LoginPage() {
   return (
     <div className="mx-auto max-w-sm px-4 py-16">
       <div className="mb-6 text-center">
-        <img src="/brand/logo.webp" alt="Bluewhale The Fruit" className="mx-auto h-44 w-auto" />
+        <ShellMark className="mx-auto h-16 w-16 text-ink-950" />
+        <p className="mt-3 font-serif text-3xl tracking-[0.2em]">PASSION</p>
         <h1 className="mt-4 font-serif text-2xl">로그인</h1>
       </div>
 

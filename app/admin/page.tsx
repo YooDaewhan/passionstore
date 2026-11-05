@@ -1,12 +1,12 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
 
 import Link from "next/link";
+import ShellMark from "../shell-mark";
 import { useState } from "react";
-import { FruitImage, INITIAL_PRODUCTS, saleStatus, useStore, won, type Product } from "../store";
+import { ProductImage, INITIAL_PRODUCTS, saleStatus, useStore, won, type Product } from "../store";
 
-const EMPTY: Omit<Product, "id"> = { emoji: "🍍", image: "", name: "", origin: "", pricePerKg: 10000, description: "", saleStart: "", saleEnd: "" };
+const EMPTY: Omit<Product, "id"> = { emoji: "🦪", image: "", name: "", origin: "", pricePerKg: 10000, description: "", saleStart: "", saleEnd: "" };
 const STATUS_LABEL = { onsale: "판매중", upcoming: "판매예정", ended: "판매종료" };
 
 export default function AdminPage() {
@@ -17,7 +17,7 @@ export default function AdminPage() {
   if (user?.role !== "admin")
     return (
       <div className="px-4 py-24 text-center">
-        <img src="/brand/whale-fruits.webp" alt="" className="mx-auto h-32 w-auto" />
+        <ShellMark className="mx-auto h-16 w-16 text-pearl-600" />
         <p className="mt-3 text-ink-900/60">관리자만 접근할 수 있는 페이지입니다.</p>
         <Link href="/login" className="btn mt-6 inline-block">관리자 로그인</Link>
       </div>
@@ -72,7 +72,7 @@ export default function AdminPage() {
             {products.map((p) => (
               <tr key={p.id} className="border-t border-ink-900/5">
                 <td className="p-3 font-semibold">
-                  <FruitImage p={p} className="mr-3 inline-grid h-10 w-10 rounded-sm align-middle text-xl" />
+                  <ProductImage p={p} className="mr-3 inline-grid h-10 w-10 rounded-sm align-middle text-xl" />
                   {p.name}
                 </td>
                 <td className="p-3 text-ink-900/70">{p.origin}</td>
@@ -141,7 +141,7 @@ function ProductForm({
           </Label>
         </div>
         <div className="grid grid-cols-[80px_1fr] items-end gap-3">
-          <FruitImage key={p.image} p={p} className="h-[68px] w-20 rounded-sm text-3xl" />
+          <ProductImage key={p.image} p={p} className="h-[68px] w-20 rounded-sm text-3xl" />
           <Label text="상품 사진 URL (비우면 이모지 표시)">
             <input className="field" type="url" placeholder="https://..." value={p.image} onChange={(e) => set("image", e.target.value)} />
           </Label>

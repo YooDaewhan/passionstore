@@ -5,9 +5,9 @@ import { useEffect, useState } from "react";
 
 const DURATION = 6000;
 const SLIDES = [
-  { src: "/slides/1.jpg", pos: "50% 15%", eyebrow: "Collection No.01 — The Jungle", title: "열대의 숲에서\n막 깨어난 신선함", text: "산지에서 완숙된 과일만 골라 72시간 안에 식탁으로." },
-  { src: "/slides/2.jpg", pos: "50% 45%", eyebrow: "Collection No.02 — Sunset", title: "노을 지는 바다처럼\n달콤한 한 잔", text: "라즈베리, 라임, 패션프루트로 완성하는 홈 칵테일." },
-  { src: "/slides/3.jpg", pos: "50% 55%", eyebrow: "Collection No.03 — Island Morning", title: "섬의 아침을\n그대로 식탁 위에", text: "코코넛 · 바나나 · 망고로 채우는 오늘의 스무디볼." },
+  { src: "/slides/1.jpg", pos: "50% 50%", eyebrow: "Collection No.01 — On Ice", title: "얼음 위에 놓인\n겨울 바다의 첫 맛", text: "통영과 거제에서 오늘 아침 건진 굴을 그대로 식탁으로." },
+  { src: "/slides/2.jpg", pos: "50% 55%", eyebrow: "Collection No.02 — Oyster Bar", title: "화이트 와인 한 잔과\n하프쉘 오이스터", text: "레몬과 미뇨네트만 있으면 집이 오이스터 바가 됩니다." },
+  { src: "/slides/3.jpg", pos: "50% 50%", eyebrow: "Collection No.03 — Mother of Pearl", title: "껍데기 안쪽의\n자개빛 바다", text: "완도 활전복과 고성 가리비, 가장 좋은 철에만 보냅니다." },
 ];
 
 export default function HeroSlider() {
@@ -36,7 +36,7 @@ export default function HeroSlider() {
       ))}
 
       <div className="absolute inset-x-0 bottom-0 mx-auto max-w-6xl px-4 pb-16 sm:pb-20">
-        <p key={`e${i}`} className="text-[11px] uppercase tracking-[0.35em] text-gold-300">{SLIDES[i].eyebrow}</p>
+        <p key={`e${i}`} className="text-[11px] uppercase tracking-[0.35em] text-pearl-300">{SLIDES[i].eyebrow}</p>
         <h1 key={`t${i}`} className="mt-4 whitespace-pre-line font-serif text-4xl font-normal leading-[1.15] sm:text-6xl">{SLIDES[i].title}</h1>
         <p className="mt-4 max-w-md text-sm text-ivory/75">{SLIDES[i].text}</p>
         <a href="#products" className="mt-8 inline-block border border-ivory/70 px-7 py-3 text-[11px] uppercase tracking-[0.3em] transition hover:bg-ivory hover:text-ink-950">

@@ -1,7 +1,7 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
+import ShellMark from "./shell-mark";
 import { useStore } from "./store";
 
 const item = "py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-ink-900/80 underline-offset-8 hover:text-ink-950 hover:underline";
@@ -18,9 +18,9 @@ export default function Header() {
           <Link href="/#story" className={`hidden sm:inline ${item}`}>Story</Link>
         </nav>
 
-        <Link href="/" className="flex items-center gap-2" aria-label="Bluewhale The Fruit 홈">
-          <img src="/brand/whale-fruits.webp" alt="" className="h-9 w-auto" />
-          <span className="hidden font-serif text-2xl font-medium tracking-[0.18em] min-[400px]:inline">BLUEWHALE</span>
+        <Link href="/" className="flex items-center gap-2" aria-label="PASSION Oyster & Shell 홈">
+          <ShellMark className="h-8 w-8 text-ink-950" />
+          <span className="hidden font-serif text-2xl font-medium tracking-[0.18em] min-[400px]:inline">PASSION</span>
         </Link>
 
         <nav className="flex items-center justify-end gap-4 whitespace-nowrap sm:gap-5">

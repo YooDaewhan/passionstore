@@ -3,8 +3,9 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
 import HeroSlider from "./hero-slider";
+import ShellMark from "./shell-mark";
 import Link from "next/link";
-import { FruitImage, saleStatus, STATUS_EN as LABEL, useStore, won, type Product, type SaleStatus } from "./store";
+import { ProductImage, saleStatus, STATUS_EN as LABEL, useStore, won, type Product, type SaleStatus } from "./store";
 
 const FILTERS: { key: SaleStatus | "all"; label: string }[] = [
   { key: "all", label: "All" },
@@ -13,9 +14,9 @@ const FILTERS: { key: SaleStatus | "all"; label: string }[] = [
   { key: "ended", label: "Archive" },
 ];
 const PROMISES = [
-  { no: "01", title: "산지 완숙 수확", text: "나무에서 충분히 익힌 뒤 수확해 향과 당도가 가장 높을 때 보냅니다." },
-  { no: "02", title: "당도 선별 인증", text: "비파괴 당도 선별기로 기준을 통과한 과일만 블루웨일 라벨을 붙입니다." },
-  { no: "03", title: "72시간 콜드체인", text: "수확부터 문 앞까지 끊김 없는 저온 유통으로 신선함을 지킵니다." },
+  { no: "01", title: "당일 채취 · 당일 출고", text: "새벽에 건져 올린 조개를 그날 오후에 출고합니다. 수조에서 며칠 묵히지 않아요." },
+  { no: "02", title: "정화 해수 세척", text: "UV 살균 해수로 해감과 세척을 마친 뒤, 크기별로 손으로 다시 고릅니다." },
+  { no: "03", title: "0–4℃ 콜드체인", text: "아이스팩과 보냉 박스로 바다의 온도를 문 앞까지 그대로 지킵니다." },
 ];
 
 export default function Home() {
@@ -33,11 +34,11 @@ export default function Home() {
       <HeroSlider />
 
       <section className="mx-auto max-w-3xl px-4 py-24 text-center">
-        <p className="eyebrow">Since the Deep Blue</p>
+        <p className="eyebrow">From the Cold Sea</p>
         <p className="mt-6 font-serif text-2xl leading-relaxed text-ink-900 sm:text-3xl">
-          고래가 대양을 건너듯, 우리는 가장 좋은 순간의 열대과일을
-          <em className="text-gold-600"> 천천히, 그러나 신선하게 </em>
-          당신의 식탁으로 옮깁니다.
+          조개는 바다를 떠나는 순간부터 맛이 변합니다. 그래서 우리는
+          <em className="text-pearl-600"> 가장 짧은 길로, 가장 차갑게 </em>
+          당신의 식탁에 올립니다.
         </p>
       </section>
 
@@ -45,7 +46,7 @@ export default function Home() {
         <div className="flex flex-wrap items-end justify-between gap-6 border-b border-ink-900/10 pb-6">
           <div>
             <p className="eyebrow">The Collection</p>
-            <h2 className="mt-2 font-serif text-4xl">이번 시즌 열대과일</h2>
+            <h2 className="mt-2 font-serif text-4xl">이번 시즌 바다</h2>
           </div>
           <div className="flex gap-5" role="tablist">
             {FILTERS.map((f) => (
@@ -74,7 +75,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-6xl gap-10 px-4 py-20 sm:grid-cols-3">
           {PROMISES.map((x) => (
             <div key={x.no}>
-              <p className="font-serif text-3xl italic text-gold-600">{x.no}</p>
+              <p className="font-serif text-3xl italic text-pearl-600">{x.no}</p>
               <h3 className="mt-3 font-serif text-xl">{x.title}</h3>
               <p className="mt-2 text-sm leading-6 text-ink-600">{x.text}</p>
             </div>
@@ -83,18 +84,18 @@ export default function Home() {
       </section>
 
       <section id="story" className="mx-auto grid max-w-6xl scroll-mt-24 items-center gap-12 px-4 py-24 md:grid-cols-2">
-        <img src="/slides/3.jpg" alt="코코넛 스무디볼" className="aspect-[4/5] w-full object-cover" loading="lazy" />
+        <img src="/slides/story.jpg" alt="레몬을 곁들인 굴" className="aspect-[4/5] w-full object-cover" loading="lazy" />
         <div>
           <p className="eyebrow">Our Story</p>
           <h2 className="mt-3 font-serif text-4xl leading-tight">
-            바다를 건너온
+            한 알의 굴에
             <br />
-            <em>한 마리 고래</em>의 약속
+            <em>담긴 바다</em>의 약속
           </h2>
           <p className="mt-6 text-sm leading-7 text-ink-600">
-            블루웨일은 필리핀의 망고 농장, 코스타리카의 파인애플 밭, 하와이의 파파야 과수원과 직접 계약합니다. 중간 유통을 줄인 만큼, 과일이 나무에 머무는 시간을 늘렸습니다.
+            패션은 통영의 굴 양식장, 완도의 전복 어가, 고성의 가리비 어장과 직접 계약합니다. 중간 유통을 줄인 만큼, 바다에서 식탁까지의 시간을 줄였습니다.
           </p>
-          <img src="/brand/mascot.webp" alt="" className="mt-10 h-36 w-auto" loading="lazy" />
+          <ShellMark className="mt-10 h-14 w-14 text-pearl-600" />
         </div>
       </section>
     </>
@@ -110,9 +111,9 @@ function ProductCard({ p }: { p: Product }) {
 
   return (
     <article className="group flex flex-col">
-      <div className="relative aspect-[4/5] overflow-hidden bg-gold-300/30">
+      <div className="relative aspect-[4/5] overflow-hidden bg-pearl-300/30">
         <Link href={`/product/${p.id}`} className="block h-full" aria-label={`${p.name} 상세 보기`}>
-          <FruitImage p={p} className={`h-full w-full text-7xl transition duration-[1200ms] ease-out group-hover:scale-105 ${buyable ? "" : "opacity-60 grayscale"}`} />
+          <ProductImage p={p} className={`h-full w-full text-7xl transition duration-[1200ms] ease-out group-hover:scale-105 ${buyable ? "" : "opacity-60 grayscale"}`} />
         </Link>
         <span className="absolute left-3 top-3 bg-ivory/90 px-2 py-1 text-[10px] uppercase tracking-[0.2em] text-ink-900">{LABEL[status]}</span>
         {buyable && (

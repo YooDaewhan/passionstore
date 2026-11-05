@@ -1,10 +1,10 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
 
 import Link from "next/link";
 import { useState } from "react";
-import { FruitImage, useStore, won } from "../store";
+import ShellMark from "../shell-mark";
+import { ProductImage, useStore, won } from "../store";
 
 const SHIPPING_FEE = 3500;
 const FREE_SHIPPING_OVER = 50000;
@@ -30,7 +30,7 @@ export default function CartPage() {
     const f = new FormData(e.currentTarget);
     const address = `(${f.get("zip")}) ${f.get("addr1")} ${f.get("addr2")}`.trim();
     setDone({
-      orderNo: "BW" + Date.now().toString().slice(-8),
+      orderNo: "PS" + Date.now().toString().slice(-8),
       name: String(f.get("name")),
       phone: String(f.get("phone")),
       address,
@@ -44,9 +44,9 @@ export default function CartPage() {
   if (done)
     return (
       <div className="mx-auto max-w-lg px-4 py-16 text-center">
-        <img src="/brand/mascot.webp" alt="" className="mx-auto h-48 w-auto" />
+        <ShellMark className="mx-auto h-16 w-16 text-pearl-600" />
         <h1 className="mt-4 font-serif text-3xl">Thank you — 주문이 접수되었습니다</h1>
-        <p className="mt-1 text-sm text-ink-900/60">고래가 열심히 헤엄쳐 가고 있어요. (데모: 실제 주문은 저장되지 않습니다)</p>
+        <p className="mt-1 text-sm text-ink-900/60">얼음 가득 담아 바로 출발합니다. (데모: 실제 주문은 저장되지 않습니다)</p>
         <dl className="mt-8 space-y-2 rounded-sm bg-white p-6 text-left text-sm border border-ink-900/10">
           {[
             ["주문번호", done.orderNo],
@@ -71,9 +71,9 @@ export default function CartPage() {
   if (lines.length === 0)
     return (
       <div className="px-4 py-24 text-center">
-        <img src="/brand/whale-flower.webp" alt="" className="mx-auto h-40 w-auto" />
+        <ShellMark className="mx-auto h-16 w-16 text-pearl-600" />
         <p className="mt-3 text-ink-900/60">장바구니가 비어 있어요.</p>
-        <Link href="/" className="btn mt-6 inline-block">열대과일 보러가기</Link>
+        <Link href="/" className="btn mt-6 inline-block">오늘의 바다 보러가기</Link>
       </div>
     );
 
@@ -84,7 +84,7 @@ export default function CartPage() {
         <ul className="space-y-3">
           {lines.map(({ p, kg }) => (
             <li key={p!.id} className="flex flex-wrap items-center gap-x-4 gap-y-3 rounded-sm bg-white p-4 border border-ink-900/10">
-              <FruitImage p={p!} className="h-16 w-16 shrink-0 rounded-sm text-3xl" />
+              <ProductImage p={p!} className="h-16 w-16 shrink-0 rounded-sm text-3xl" />
               <div className="min-w-0 flex-1">
                 <Link href={`/product/${p!.id}`} className="font-serif text-lg hover:underline">{p!.name}</Link>
                 <p className="text-xs text-ink-900/50">{won(p!.pricePerKg)} / kg · {p!.origin}</p>

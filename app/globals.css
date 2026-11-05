@@ -1,17 +1,15 @@
 @import "tailwindcss";
 
-/* Quiet-luxury palette: ivory paper, warm ink, champagne gold, brand blue as a rare accent */
+/* Oyster-bar quiet luxury: ivory paper, deep sea navy ink, mother-of-pearl accent */
 @theme {
-  --color-ink-950: #1c1a17;
-  --color-ink-900: #2b2724;
-  --color-ink-800: #1c1a17;
-  --color-ink-600: #4a443e;
-  --color-gold-300: #e7d8bd;
-  --color-gold-400: #c9a96e;
-  --color-gold-600: #9c7a45;
-  --color-ivory: #f8f5ef;
+  --color-ink-950: #0f1a2e;
+  --color-ink-900: #14213a;
+  --color-ink-800: #0f1a2e;
+  --color-ink-600: #45506a;
+  --color-pearl-300: #dfe3e6;
+  --color-pearl-600: #6f8193;
+  --color-ivory: #f6f4ef;
   --color-coral-500: #b5543f;
-  --color-brand: #0a8bd6; /* logo blue */
   --font-sans: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
   --font-serif: var(--font-cormorant), var(--font-noto-serif-kr), "Times New Roman", serif;
 }
@@ -30,7 +28,7 @@ body {
     @apply rounded-none bg-ink-950 px-5 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-ivory transition hover:bg-ink-600 disabled:cursor-not-allowed disabled:bg-ink-900/20 disabled:text-ink-900/50;
   }
   .eyebrow {
-    @apply text-[11px] font-medium uppercase tracking-[0.35em] text-gold-600;
+    @apply text-[11px] font-medium uppercase tracking-[0.35em] text-pearl-600;
   }
 }
 

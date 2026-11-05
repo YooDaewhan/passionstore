@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { FruitImage, saleStatus, STATUS_EN, useStore, won } from "../../store";
+import { ProductImage, saleStatus, STATUS_EN, useStore, won } from "../../store";
 
 const KG_PRESETS = [1, 2, 3, 5];
 
@@ -48,8 +48,8 @@ export default function ProductDetail({ id }: { id: number }) {
 
       <div className="grid gap-10 md:grid-cols-[1.15fr_1fr] md:gap-16">
         <div className="md:sticky md:top-24 md:self-start">
-          <div className="relative aspect-[4/5] overflow-hidden bg-gold-300/30">
-            <FruitImage p={{ ...p, image: p.image.replace("w=640&h=480", "w=1200&h=1500") }} className={`h-full w-full text-[8rem] ${buyable ? "" : "opacity-60 grayscale"}`} />
+          <div className="relative aspect-[4/5] overflow-hidden bg-pearl-300/30">
+            <ProductImage p={{ ...p, image: p.image.replace("w=640&h=480", "w=1200&h=1500") }} className={`h-full w-full text-[8rem] ${buyable ? "" : "opacity-60 grayscale"}`} />
             <span className="absolute left-4 top-4 bg-ivory/90 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em]">{STATUS_EN[status]}</span>
           </div>
         </div>
@@ -120,9 +120,9 @@ export default function ProductDetail({ id }: { id: number }) {
 
           <div className="mt-10 divide-y divide-ink-900/10 border-y border-ink-900/10">
             {[
-              ["Tasting Notes", `${p.name}은(는) 산지에서 충분히 익힌 뒤 수확합니다. 받으신 후 상온에서 하루 정도 후숙하면 향이 더 진해집니다.`],
-              ["Storage", "직사광선을 피해 서늘한 곳에 보관하고, 자른 과일은 밀폐 용기에 담아 냉장 보관 후 2일 안에 드세요."],
-              ["Shipping & Returns", "결제 후 2–4일 내 아이스박스로 출고됩니다. 5만원 이상 무료배송, 당도 미달·파손 시 사진과 함께 문의 주시면 재배송해 드립니다."],
+              ["Tasting Notes", `${p.name}은(는) 새벽에 채취해 정화 해수로 세척한 뒤 그날 출고합니다. 받은 날 드셔야 바다 향이 가장 진합니다.`],
+              ["Storage", "받는 즉시 0–4℃ 냉장 보관하세요. 활전복과 패류는 젖은 천을 덮어 두고, 물에 담그지 마세요. 2일 안에 드시는 걸 권합니다."],
+              ["Shipping & Returns", "결제 후 2–4일 내 아이스박스로 출고됩니다. 5만원 이상 무료배송, 폐사·파손 시 사진과 함께 문의 주시면 재배송해 드립니다."],
             ].map(([title, body], n) => (
               <details key={title} className="group py-4" open={n === 0}>
                 <summary className="flex cursor-pointer list-none items-center justify-between text-[11px] uppercase tracking-[0.25em]">
@@ -139,12 +139,12 @@ export default function ProductDetail({ id }: { id: number }) {
       {related.length > 0 && (
         <section className="mt-24">
           <p className="eyebrow">You May Also Like</p>
-          <h2 className="mt-2 font-serif text-3xl">함께 보면 좋은 과일</h2>
+          <h2 className="mt-2 font-serif text-3xl">함께 곁들이기 좋은 바다</h2>
           <div className="mt-8 grid grid-cols-2 gap-x-4 gap-y-8 sm:gap-x-6 lg:grid-cols-4">
             {related.map((r) => (
               <Link key={r.id} href={`/product/${r.id}`} className="group">
-                <div className="aspect-[4/5] overflow-hidden bg-gold-300/30">
-                  <FruitImage p={r} className="h-full w-full text-6xl transition duration-[1200ms] group-hover:scale-105" />
+                <div className="aspect-[4/5] overflow-hidden bg-pearl-300/30">
+                  <ProductImage p={r} className="h-full w-full text-6xl transition duration-[1200ms] group-hover:scale-105" />
                 </div>
                 <p className="mt-3 text-[10px] uppercase tracking-[0.25em] text-ink-900/50">{r.origin}</p>
                 <p className="mt-1 font-serif text-lg">{r.name}</p>
