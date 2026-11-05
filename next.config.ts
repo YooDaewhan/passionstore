@@ -5,6 +5,8 @@ const nextConfig: NextConfig = {
   experimental: {
     agentFeedback: true,
   },
+  // LAN access for phone testing; dev only
+  allowedDevOrigins: ["172.30.1.35"],
   cacheComponents: true,
   partialPrefetching: true,
   turbopack: {
